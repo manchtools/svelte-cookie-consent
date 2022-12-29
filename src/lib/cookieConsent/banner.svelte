@@ -2,10 +2,9 @@
 	import {
 		setCookieConsentSeen,
 		setTrackingDisallowedCookie,
-		cookieConsentSeen,
-		trackingConsent,
 		setTrackingAllowedCookie
 	} from './bannerFunctions';
+	import { cookieConsentSeen, trackingConsent } from './bannerStores';
 	import { fade, fly } from 'svelte/transition';
 
 	import Cookies from 'js-cookie';

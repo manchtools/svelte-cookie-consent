@@ -1,5 +1,5 @@
 <script>
-	import { trackingConsent } from '$lib/cookieConsent/bannerFunctions';
+	import { trackingConsent } from '$lib/cookieConsent/bannerStores';
 </script>
 
 <svelte:head>

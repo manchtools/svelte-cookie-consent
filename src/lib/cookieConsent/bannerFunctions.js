@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie';
-import { writable } from 'svelte/store';
+import { trackingConsent, cookieConsentSeen } from './bannerStores';
 
 export function setTrackingAllowedCookie() {
 	Cookies.set('tracking-cookie-consent', 'true', { expires: 365 });
@@ -20,6 +20,3 @@ export function resetCookieBanner() {
 	trackingConsent.set(false);
 	cookieConsentSeen.set(false);
 }
-
-export const trackingConsent = writable(false);
-export const cookieConsentSeen = writable();
