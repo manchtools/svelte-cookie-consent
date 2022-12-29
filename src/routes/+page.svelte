@@ -8,4 +8,7 @@
 <Banner />
 
 <style>
+	:global(body) {
+		background-color: darkgray;
+	}
 </style>
