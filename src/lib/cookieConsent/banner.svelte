@@ -89,6 +89,7 @@
 		-ms-box-sizing: border-box;
 		-o-box-sizing: border-box;
 		box-sizing: border-box;
+		z-index: 99999;
 	}
 	.button-group {
 		width: 100%;
