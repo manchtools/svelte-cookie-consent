@@ -1,5 +1,5 @@
 <script>
-	import { trackingConsent } from '$lib/cookieConsent/bannerStores';
+	import { trackingConsent } from '../cookieConsent/bannerStores';
 </script>
 
 {#if $trackingConsent}
