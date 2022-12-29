@@ -123,9 +123,7 @@
 			max-width: 870px;
 			right: 1.5rem;
 			bottom: 1.5rem;
-			border-bottom: solid;
-			border-left: solid;
-			border-right: solid;
+			border: solid;
 		}
 	}
 	@media (min-width: 768px) {
