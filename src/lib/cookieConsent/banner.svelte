@@ -53,14 +53,14 @@
 
 <style>
 	:global(:root) {
-		--dark-color-bg: black;
-		--light-color-bg: white;
-		--dark-color-text: black;
-		--light-color-text: white;
-		--dark-color-border: black;
-		--light-color-border: white;
-		--allow-button: green;
-		--deny-button: red;
+		--ccb-dark-color-bg: black;
+		--ccb-light-color-bg: white;
+		--ccb-dark-color-text: black;
+		--ccb-light-color-text: white;
+		--ccb-dark-color-border: black;
+		--ccb-light-color-border: white;
+		--ccb-allow-button: green;
+		--ccb-deny-button: red;
 	}
 	* {
 		margin: 0;
@@ -109,10 +109,10 @@
 	}
 
 	button.allow {
-		background-color: var(--allow-button);
+		background-color: var(--ccb-allow-button);
 	}
 	button.deny {
-		background-color: var(--deny-button);
+		background-color: var(--ccb-deny-button);
 	}
 
 	@media (min-width: 1024px) {
@@ -136,16 +136,16 @@
 	}
 	@media (prefers-color-scheme: light) {
 		.cookie-banner {
-			background-color: var(--light-color-bg);
-			color: var(--dark-color-text);
-			border-color: var(--dark-color-border);
+			background-color: var(--ccb-light-color-bg);
+			color: var(--ccb-dark-color-text);
+			border-color: var(--ccb-dark-color-border);
 		}
 	}
 	@media (prefers-color-scheme: dark) {
 		.cookie-banner {
-			background-color: var(--dark-color);
-			color: var(--light-color-text);
-			border-color: var(--light-color-border);
+			background-color: var(--ccb-dark-color);
+			color: var(--ccb-light-color-text);
+			border-color: var(--ccb-light-color-border);
 		}
 	}
 </style>
