@@ -8,16 +8,4 @@
 <Banner />
 
 <style>
-	@media (prefers-color-scheme: light) {
-		:global(body) {
-			background-color: var(--light-color-bg);
-			color: var(--dark-color-text);
-		}
-	}
-	@media (prefers-color-scheme: dark) {
-		:global(body) {
-			background-color: var(--dark-color-bg);
-			color: var(--light-color-text);
-		}
-	}
 </style>
