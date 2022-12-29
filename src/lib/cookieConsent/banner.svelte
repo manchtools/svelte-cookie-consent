@@ -143,7 +143,7 @@
 	}
 	@media (prefers-color-scheme: dark) {
 		.cookie-banner {
-			background-color: var(--ccb-dark-color);
+			background-color: var(--ccb-dark-color-bg);
 			color: var(--ccb-light-color-text);
 			border-color: var(--ccb-light-color-border);
 		}
