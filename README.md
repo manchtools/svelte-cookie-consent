@@ -20,7 +20,7 @@ trackingConsent			|Svelte store
 cookieConsentSeen		|Svelte store
 ```
 
-## <CookieConsentBanner>
+## CookieConsentBanner
 
 This is the main banner that your users sees when first loading your site.
 
