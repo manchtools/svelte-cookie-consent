@@ -13,11 +13,14 @@ You can install it, right from NPM
 You have access to 5 exports that control the consent banner behaviour.
 
 ```
-<CookieConsentBanner>	|Svelte component
-<TrackingHead>			|Svelte component
-<TrackingBody>			|Svelte component
-trackingConsent			|Svelte store
-cookieConsentSeen		|Svelte store
+<CookieConsentBanner>       |Svelte component
+<TrackingHead>			    |Svelte component
+<TrackingBody>			    |Svelte component
+<AdvertismentHead>			|Svelte component
+<AdvertismentBody>			|Svelte component
+trackingConsent			    |Svelte store
+advertisingConsent			|Svelte store
+cookieConsentSeen		    |Svelte store
 ```
 
 ## CookieConsentBanner
@@ -35,4 +38,4 @@ giveConsentText
 denyConsentText
 ```
 
-You can insert your own text or html into these slots to extend it for your needs.
+You can insert your own text or HTML into these slots to extend it for your needs.
