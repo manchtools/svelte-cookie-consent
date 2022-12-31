@@ -54,7 +54,7 @@ The banner contains the following styles as CSS root variables that can be repla
 --ccb-dark-color-border: #000000;
 --ccb-light-color-border: #ffffff;
 --ccb-allow-button: #008000;
---ccb-deny-button: `ff0000;
+--ccb-deny-button: #ff0000;
 ```
 
 ## TrackingHead and AdvertismentHead
