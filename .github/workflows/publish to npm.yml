@@ -15,7 +15,6 @@ jobs:
           node-version: 16
       - run: npm i --package-lock-only
       - run: npm ci
-      - run: npm install
       - run: npm run build
       - run: npm publish ./package/
         env:
