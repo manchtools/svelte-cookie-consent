@@ -42,7 +42,7 @@ denyConsentText
 
 You can insert your own text or HTML into these slots to extend it for your needs.
 
-###### Styling
+## Styling
 
 The banner contains the following styles as CSS root variables that can be replaced to fit your color schema.
 
