@@ -6,7 +6,7 @@ name: Node.js Package
 on: workflow_dispatch
 
 jobs:
-  build:
+  build and publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -15,26 +15,8 @@ jobs:
           node-version: 16
       - run: npm i --package-lock-only
       - run: npm ci
-      - run: npm install
       - run: npm run build
-      - uses: actions/upload-artifact@v3
-        with:
-          name: package-dir
-          path: ./package
-
-  publish-npm:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/download-artifact@master
-        with:
-          name: package-dir
-          path: ./package
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          registry-url: https://registry.npmjs.org/
       - run: cd ./package
       - run: npm publish
-        env:
+     env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
