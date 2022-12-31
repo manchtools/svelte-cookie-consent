@@ -1,6 +1,7 @@
 {
 	"name": "@manchtools/svelte-cookie-consent",
 	"version": "0.1.6",
+	"license": "MIT",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "svelte-kit sync && svelte-package",
