@@ -2,9 +2,11 @@
 	import {
 		setCookieConsentSeen,
 		setTrackingDisallowedCookie,
-		setTrackingAllowedCookie
+		setTrackingAllowedCookie,
+		setAdvertisementAllowedCookie,
+		setAdvertismentDisallowedCookie
 	} from './bannerFunctions';
-	import { cookieConsentSeen, trackingConsent } from './bannerStores';
+	import { cookieConsentSeen, trackingConsent, advertisementConsent } from './bannerStores';
 	import { fade, fly } from 'svelte/transition';
 
 	import Cookies from 'js-cookie';
@@ -16,6 +18,7 @@
 	onMount(() => {
 		$trackingConsent = Cookies.get('tracking-cookie-consent') || false;
 		$cookieConsentSeen = Cookies.get('cookie-banner-seen') || false;
+		$advertisementConsent = Cookies.get("tracking-cookie-consent") || false
 	});
 </script>
 
@@ -38,14 +41,16 @@
 				on:click={() => {
 					setCookieConsentSeen();
 					setTrackingAllowedCookie();
-				}}><slot name="giveTrackingConsentText">Yes please track me!</slot></button
+					setAdvertisementAllowedCookie();
+				}}><slot name="giveConsentText">Yes please track me!</slot></button
 			>
 			<button
 				class="deny"
 				on:click={() => {
 					setCookieConsentSeen();
 					setTrackingDisallowedCookie();
-				}}><slot name="preventTrackingConsentText">Only accept neccessary</slot></button
+					setAdvertismentDisallowedCookie();
+				}}><slot name="denyConsentText">Only accept neccessary</slot></button
 			>
 		</div>
 	</div>
