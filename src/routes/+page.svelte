@@ -1,11 +1,19 @@
 <script>
 	import Banner from '$lib/cookieConsent/banner.svelte';
+	import TrackingHead from '$lib/tracking/trackingHead.svelte';
+	import TrackingBody from '$lib/tracking/trackingBody.svelte';
+	import { resetCookieBanner } from '$lib/cookieConsent/bannerFunctions';
 </script>
 
-<h1>Welcome to your library project</h1>
-<p>Create your package using @sveltejs/package and preview/showcase your work with SvelteKit</p>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<button on:click={resetCookieBanner}>Reset banner</button>
+
 <Banner />
+<TrackingBody>This Body can only be seen once Tracking is accepted</TrackingBody>
+<TrackingHead><title>
+
+	This Header can only be seen once Tracking is accepted
+</title>
+</TrackingHead>
 
 <style>
 	:global(body) {
