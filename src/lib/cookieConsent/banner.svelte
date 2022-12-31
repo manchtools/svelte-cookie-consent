@@ -1,24 +1,22 @@
 <script>
+	import { allowAll, denyAll, setSelectedConsent } from './bannerFunctions';
 	import {
-		setCookieConsentSeen,
-		setTrackingDisallowedCookie,
-		setTrackingAllowedCookie,
-		setAdvertisementAllowedCookie,
-		setAdvertismentDisallowedCookie
-	} from './bannerFunctions';
-	import { cookieConsentSeen, trackingConsent, advertisementConsent } from './bannerStores';
+		cookieConsentSeen,
+		trackingConsent,
+		advertisementConsent,
+		allowAdvertising,
+		allowTracking
+	} from './bannerStores';
 	import { fade, fly } from 'svelte/transition';
 
 	import Cookies from 'js-cookie';
 
 	import { onMount } from 'svelte';
 
-	export const bannerClasses = 'bg-base-200';
-
 	onMount(() => {
 		$trackingConsent = Cookies.get('tracking-cookie-consent') || false;
 		$cookieConsentSeen = Cookies.get('cookie-banner-seen') || false;
-		$advertisementConsent = Cookies.get("tracking-cookie-consent") || false
+		$advertisementConsent = Cookies.get('tracking-cookie-consent') || false;
 	});
 </script>
 
@@ -35,21 +33,35 @@
 				</slot>
 			</p>
 		</div>
+		<div class="switch-group">
+			<div>
+				<input type="checkbox" name="tracking" bind:checked={$allowTracking} />
+				<label for="tracking"> <slot name="allowTrackingCheckText">Allow Tracking</slot></label>
+			</div>
+			<div>
+				<input type="checkbox" name="advertising" bind:checked={$allowAdvertising} />
+				<label for="tracking">
+					<slot name="allowAdvertisingCheckText">Allow Advertising</slot>
+				</label>
+			</div>
+		</div>
 		<div class="button-group">
 			<button
-				class="allow"
+				class="allowAll"
 				on:click={() => {
-					setCookieConsentSeen();
-					setTrackingAllowedCookie();
-					setAdvertisementAllowedCookie();
-				}}><slot name="giveConsentText">Yes please track me!</slot></button
+					allowAll();
+				}}><slot name="giveConsentAllText">Allow Everything</slot></button
+			>
+			<button
+				class="allowSelected"
+				on:click={() => {
+					setSelectedConsent();
+				}}><slot name="giveConsentSelectedText">Allow Selected</slot></button
 			>
 			<button
 				class="deny"
 				on:click={() => {
-					setCookieConsentSeen();
-					setTrackingDisallowedCookie();
-					setAdvertismentDisallowedCookie();
+					denyAll();
 				}}><slot name="denyConsentText">Only accept neccessary</slot></button
 			>
 		</div>
@@ -64,7 +76,8 @@
 		--ccb-light-color-text: #ffffff;
 		--ccb-dark-color-border: #000000;
 		--ccb-light-color-border: #ffffff;
-		--ccb-allow-button: #008000;
+		--ccb-allow-all-button: #008000;
+		--ccb-allow-selected-button: #bf7c00;
 		--ccb-deny-button: #ff0000;
 	}
 	* {
@@ -104,6 +117,14 @@
 		gap: 1rem;
 		justify-content: center;
 	}
+	.switch-group {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		margin-top: 1rem;
+		gap: 1rem;
+		justify-content: center;
+	}
 	button {
 		all: unset;
 		cursor: pointer;
@@ -114,8 +135,11 @@
 		border-radius: 0.65rem;
 	}
 
-	button.allow {
-		background-color: var(--ccb-allow-button);
+	button.allowAll {
+		background-color: var(--ccb-allow-all-button);
+	}
+	button.allowSelected {
+		background-color: var(--ccb-allow-selected-button);
 	}
 	button.deny {
 		background-color: var(--ccb-deny-button);
