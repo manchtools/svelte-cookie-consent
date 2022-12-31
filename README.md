@@ -47,14 +47,14 @@ You can insert your own text or HTML into these slots to extend it for your need
 The banner contains the following styles as CSS root variables that can be replaced to fit your color schema.
 
 ```
---ccb-dark-color-bg: `#000000`;
---ccb-light-color-bg: `#ffffff`;
---ccb-dark-color-text: `#000000`;
---ccb-light-color-text: `#ffffff`;
---ccb-dark-color-border: `#000000`;
---ccb-light-color-border: `#ffffff`;
---ccb-allow-button: `#008000`;
---ccb-deny-button: `ff0000`;
+--ccb-dark-color-bg: #000000;
+--ccb-light-color-bg: #ffffff;
+--ccb-dark-color-text: #000000;
+--ccb-light-color-text: #ffffff;
+--ccb-dark-color-border: #000000;
+--ccb-light-color-border: #ffffff;
+--ccb-allow-button: #008000;
+--ccb-deny-button: `ff0000;
 ```
 
 ## TrackingHead and AdvertismentHead
