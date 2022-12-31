@@ -7,5 +7,5 @@ export {
 } from './cookieConsent/bannerStores';
 export { default as TrackingBody } from './tracking/trackingBody.svelte';
 export { default as TrackingHead } from './tracking/trackingHead.svelte';
-export { default as AdvertisementHead } from './tracking/advertisementHead.svelte';
-export { default as AdvertisementBody } from './tracking/advertisementBody.svelte';
+export { default as AdvertisementHead } from './advertisement/advertisementHead.svelte';
+export { default as AdvertisementBody } from './advertisement/advertisementBody.svelte';
