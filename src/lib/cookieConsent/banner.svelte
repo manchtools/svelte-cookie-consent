@@ -58,14 +58,14 @@
 
 <style>
 	:global(:root) {
-		--ccb-dark-color-bg: black;
-		--ccb-light-color-bg: white;
-		--ccb-dark-color-text: black;
-		--ccb-light-color-text: white;
-		--ccb-dark-color-border: black;
-		--ccb-light-color-border: white;
-		--ccb-allow-button: green;
-		--ccb-deny-button: red;
+		--ccb-dark-color-bg: #000000;
+		--ccb-light-color-bg: #ffffff;
+		--ccb-dark-color-text: #000000;
+		--ccb-light-color-text: #ffffff;
+		--ccb-dark-color-border: #000000;
+		--ccb-light-color-border: #ffffff;
+		--ccb-allow-button: #008000;
+		--ccb-deny-button: #ff0000;
 	}
 	* {
 		margin: 0;

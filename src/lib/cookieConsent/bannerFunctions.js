@@ -6,11 +6,11 @@ export function setTrackingAllowedCookie() {
 	trackingConsent.set(true);
 }
 export function setTrackingDisallowedCookie() {
-	Cookies.set('advertising-cookie-consent', 'false', { expires: 365 });
+	Cookies.set('tracking-cookie-consent', 'false', { expires: 365 });
 	trackingConsent.set(false);
 }
 export function setAdvertisementAllowedCookie() {
-	Cookies.set('tracking-cookie-consent', 'true', { expires: 365 });
+	Cookies.set('advertising-cookie-consent', 'true', { expires: 365 });
 	trackingConsent.set(true);
 }
 export function setAdvertismentDisallowedCookie() {
