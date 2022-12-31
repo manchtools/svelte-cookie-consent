@@ -24,7 +24,7 @@ cookieConsentSeen		|Svelte store
 
 This is the main banner that your users sees when first loading your site.
 
-(![Cookie consent banner](screenshots/consentBanner.png))
+![Cookie consent banner](screenshots/consentBanner.png))
 
 It provides 4 named slots
 
