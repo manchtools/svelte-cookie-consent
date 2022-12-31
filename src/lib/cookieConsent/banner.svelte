@@ -72,10 +72,11 @@
 	:global(:root) {
 		--ccb-dark-color-bg: #000000;
 		--ccb-light-color-bg: #ffffff;
-		--ccb-dark-color-text: #000000;
-		--ccb-light-color-text: #ffffff;
-		--ccb-dark-color-border: #000000;
-		--ccb-light-color-border: #ffffff;
+		--ccb-dark-color-text: #ffffff;
+		--ccb-light-color-text: #000000;
+		--ccb-dark-color-border: #ffffff;
+		--ccb-light-color-border: #000000;
+		--ccb-light-color-button-text: #ffffff;
 		--ccb-allow-all-button: #008000;
 		--ccb-allow-selected-button: #bf7c00;
 		--ccb-deny-button: #ff0000;
@@ -120,10 +121,14 @@
 	.switch-group {
 		width: 100%;
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		margin-top: 1rem;
 		gap: 1rem;
 		justify-content: center;
+	}
+	.switch-group div {
+		display: flex;
+		gap: 0.4rem;
 	}
 	button {
 		all: unset;
@@ -133,16 +138,6 @@
 		font-weight: bold;
 		text-transform: uppercase;
 		border-radius: 0.65rem;
-	}
-
-	button.allowAll {
-		background-color: var(--ccb-allow-all-button);
-	}
-	button.allowSelected {
-		background-color: var(--ccb-allow-selected-button);
-	}
-	button.deny {
-		background-color: var(--ccb-deny-button);
 	}
 
 	@media (min-width: 1024px) {
@@ -161,19 +156,77 @@
 			gap: 1.5rem;
 			flex-direction: row;
 		}
+		.switch-group {
+			gap: 1.5rem;
+			flex-direction: row;
+		}
+		.switch-group div {
+			display: flex;
+			gap: 0.75rem;
+		}
 	}
 	@media (prefers-color-scheme: light) {
+		button {
+			color: var(--ccb-light-color-button-text);
+		}
 		.cookie-banner {
 			background-color: var(--ccb-light-color-bg);
-			color: var(--ccb-dark-color-text);
-			border-color: var(--ccb-dark-color-border);
+			color: var(--ccb-light-color-text);
+			border-color: var(--ccb-light-color-border);
+		}
+		button.allowAll {
+			background-color: var(--ccb-allow-all-button);
+		}
+		button.allowSelected {
+			background-color: var(--ccb-allow-selected-button);
+		}
+		button.deny {
+			background-color: var(--ccb-deny-button);
 		}
 	}
 	@media (prefers-color-scheme: dark) {
+		button:hover {
+			transition: background-color 75ms ease, color 75ms ease;
+			-webkit-transition: background-color 75ms ease, color 75ms ease;
+			-o-transition: background-color 75ms ease, color 75ms ease;
+			-moz-transition: background-color 75ms ease, color 75ms ease;
+		}
 		.cookie-banner {
 			background-color: var(--ccb-dark-color-bg);
-			color: var(--ccb-light-color-text);
-			border-color: var(--ccb-light-color-border);
+			color: var(--ccb-dark-color-text);
+			border-color: var(--ccb-dark-color-border);
+		}
+		button.allowAll {
+			border-width: 1px;
+			border-style: solid;
+			border-color: var(--ccb-allow-all-button);
+			color: var(--ccb-allow-all-button);
+			background-color: rgba(0, 0, 0, 0);
+		}
+		button.allowAll:hover {
+			background-color: var(--ccb-allow-all-button);
+			color: var(--ccb-dark-color-text);
+		}
+		button.allowSelected {
+			border-width: 1px;
+			border-style: solid;
+			border-color: var(--ccb-allow-selected-button);
+			color: var(--ccb-allow-selected-button);
+		}
+		button.allowSelected:hover {
+			background-color: var(--ccb-allow-selected-button);
+			color: var(--ccb-dark-color-text);
+		}
+		button.deny {
+			background-color: none;
+			border-width: 1px;
+			border-style: solid;
+			border-color: var(--ccb-deny-button);
+			color: var(--ccb-deny-button);
+		}
+		button.deny:hover {
+			background-color: var(--ccb-deny-button);
+			color: var(--ccb-dark-color-text);
 		}
 	}
 </style>
