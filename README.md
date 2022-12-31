@@ -9,3 +9,30 @@ I could not find a good solution for my SvelteKit project, where i could ask a u
 You can install it, right from NPM
 
     npm i @manchtools/svelte-cookie-consent@latest
+
+You have access to 5 exports that control the consent banner behaviour.
+
+```
+<CookieConsentBanner>	|Svelte component
+<TrackingHead>			|Svelte component
+<TrackingBody>			|Svelte component
+trackingConsent			|Svelte store
+cookieConsentSeen		|Svelte store
+```
+
+## <CookieConsentBanner>
+
+This is the main banner that your users sees when first loading your site.
+
+(![Cookie consent banner](screenshots/consentBanner.png))
+
+It provides 4 named slots
+
+```
+titleText
+mainText
+giveConsentText
+denyConsentText
+```
+
+You can insert your own text or html into these slots to extend it for your needs.
