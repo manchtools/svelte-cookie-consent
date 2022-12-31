@@ -28,6 +28,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"js-cookie": "^3.0.1"
+		"js-cookie": "^3.0.1",
+		"svelte": "^3.54.0"
 	}
 }
