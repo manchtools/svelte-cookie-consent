@@ -10,7 +10,7 @@ You can install it, right from NPM
 
     npm i @manchtools/svelte-cookie-consent@latest
 
-You have access to 5 exports that control the consent banner behavior.
+You have access to 8 exports that control the consent banner behavior.
 
 ```
 <CookieConsentBanner>   |Svelte component
