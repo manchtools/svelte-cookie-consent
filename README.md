@@ -59,14 +59,14 @@ The banner contains the following styles as CSS root variables that can be repla
 
 ## TrackingHead and AdvertismentHead
 
-You can place any content inside these components that needs to be inside your <head>.
+You can place any content inside these components that needs to be inside your `<head>`.
 You can place it inside your root layout, or on a page by page basis.
 
 Content inside this component, only gets injected once the user has given consent.
 
 ## TrackingBody and AdvertismentBody
 
-You can place any content inside these components that needs to be inside your <body>.
+You can place any content inside these components that needs to be inside your `<body>`.
 You can place it inside your root layout, or on a page by page basis.
 It will be inserted like a normal component so order matters.
 
