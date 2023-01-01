@@ -54,7 +54,7 @@ export function resetCookieBanner() {
 export function resetSelection() {
 	allowTracking.set(false);
 	allowAdvertising.set(false);
-	allowAdvertising.set(false);
+	allowMarketing.set(false);
 }
 
 export function setSelectedConsent() {
