@@ -5,7 +5,8 @@
 		trackingConsent,
 		advertisementConsent,
 		allowAdvertising,
-		allowTracking
+		allowTracking,
+		allowMarketing
 	} from './bannerStores';
 	import { fade, fly } from 'svelte/transition';
 
@@ -40,8 +41,14 @@
 			</div>
 			<div>
 				<input type="checkbox" name="advertising" bind:checked={$allowAdvertising} />
-				<label for="tracking">
+				<label for="advertising">
 					<slot name="allowAdvertisingCheckText">Allow Advertising</slot>
+				</label>
+			</div>
+			<div>
+				<input type="checkbox" name="marketing" bind:checked={$allowMarketing} />
+				<label for="marketing">
+					<slot name="allowMarketingCheckText">Allow Marketing</slot>
 				</label>
 			</div>
 		</div>
@@ -70,20 +77,22 @@
 
 <style>
 	:global(:root) {
-		--ccb-dark-color-bg: #000000;
+		--ccb-dark-color-bg: #121212;
 		--ccb-light-color-bg: #ffffff;
-		--ccb-dark-color-text: #ffffff;
+		--ccb-dark-color-text: hsla(0, 0%, 100%, 0.8);
 		--ccb-light-color-text: #000000;
 		--ccb-dark-color-border: #ffffff;
 		--ccb-light-color-border: #000000;
-		--ccb-light-color-button-text: #ffffff;
-		--ccb-allow-all-button: #008000;
-		--ccb-allow-selected-button: #bf7c00;
-		--ccb-deny-button: #ff0000;
+		--ccb-light-color-button-text: hsla(0, 0%, 100%, 1);
+		--ccb-dark-color-button-text: hsla(0, 0%, 100%, 0.8);
+		--ccb-allow-all-button: #38b000;
+		--ccb-allow-selected-button: #ff9500;
+		--ccb-deny-button: #bd1f36;
 	}
 	* {
 		margin: 0;
 	}
+
 	h1 {
 		margin-bottom: 0.5rem;
 	}
@@ -166,6 +175,9 @@
 		}
 	}
 	@media (prefers-color-scheme: light) {
+		a {
+			color: var(--ccb-light-color-text);
+		}
 		button {
 			color: var(--ccb-light-color-button-text);
 		}
@@ -185,7 +197,15 @@
 		}
 	}
 	@media (prefers-color-scheme: dark) {
+		a {
+			color: var(--ccb-dark-color-text);
+		}
+		button {
+			border-width: 1px;
+			border-style: solid;
+		}
 		button:hover {
+			color: var(--ccb-dark-color-button-text) !important ;
 			transition: background-color 75ms ease, color 75ms ease;
 			-webkit-transition: background-color 75ms ease, color 75ms ease;
 			-o-transition: background-color 75ms ease, color 75ms ease;
@@ -197,36 +217,25 @@
 			border-color: var(--ccb-dark-color-border);
 		}
 		button.allowAll {
-			border-width: 1px;
-			border-style: solid;
 			border-color: var(--ccb-allow-all-button);
 			color: var(--ccb-allow-all-button);
-			background-color: rgba(0, 0, 0, 0);
 		}
 		button.allowAll:hover {
 			background-color: var(--ccb-allow-all-button);
-			color: var(--ccb-dark-color-text);
 		}
 		button.allowSelected {
-			border-width: 1px;
-			border-style: solid;
 			border-color: var(--ccb-allow-selected-button);
 			color: var(--ccb-allow-selected-button);
 		}
 		button.allowSelected:hover {
 			background-color: var(--ccb-allow-selected-button);
-			color: var(--ccb-dark-color-text);
 		}
 		button.deny {
-			background-color: none;
-			border-width: 1px;
-			border-style: solid;
 			border-color: var(--ccb-deny-button);
 			color: var(--ccb-deny-button);
 		}
 		button.deny:hover {
 			background-color: var(--ccb-deny-button);
-			color: var(--ccb-dark-color-text);
 		}
 	}
 </style>
