@@ -4,6 +4,7 @@
 		cookieConsentSeen,
 		trackingConsent,
 		advertisementConsent,
+		marketingConsent,
 		allowAdvertising,
 		allowTracking,
 		allowMarketing
@@ -18,6 +19,7 @@
 		$trackingConsent = Cookies.get('tracking-cookie-consent') || false;
 		$cookieConsentSeen = Cookies.get('cookie-banner-seen') || false;
 		$advertisementConsent = Cookies.get('tracking-cookie-consent') || false;
+		$marketingConsent = Cookies.get('marketing-cookie-consent') || false;
 	});
 </script>
 
