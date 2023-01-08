@@ -41,13 +41,17 @@ This is the main banner that your users sees when first loading your site.
 
 ![Cookie consent banner for users with light preference](screenshots/consentBannerv2light.png)
 
-It provides 4 named slots
+It provides 8 named slots
 
 ```
 titleText
 mainText
-giveConsentText
-denyConsentText
+allowTrackingCheckText
+allowAdvertisingCheckText
+allowMarketingCheckText
+giveConsentAllText
+giveConsentSelectedText
+denyConsentTextdenyConsentText
 ```
 
 You can insert your own text or HTML into these slots to extend it for your needs.
