@@ -51,10 +51,12 @@ allowAdvertisingCheckText
 allowMarketingCheckText
 giveConsentAllText
 giveConsentSelectedText
-denyConsentTextdenyConsentText
+denyConsentText
 ```
 
 You can insert your own text or HTML into these slots to extend it for your needs.
+
+![Cookie consent banner for users with dark preference, that shows all the named slots](screenshots/consentBannerSlotDescriptions.png)
 
 New in v0.2.0 are now 3 props
 
