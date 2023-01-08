@@ -80,24 +80,27 @@ If you pass `{false}` to every prop, the user will only see the option from slot
 The banner contains the following styles as CSS root variables that can be replaced to fit your color schema.
 
 ```
---ccb-dark-color-bg: #000000;
+--ccb-dark-color-bg: #121212;
 --ccb-light-color-bg: #ffffff;
---ccb-dark-color-text: #000000;
---ccb-light-color-text: #ffffff;
---ccb-dark-color-border: #000000;
---ccb-light-color-border: #ffffff;
---ccb-allow-button: #008000;
---ccb-deny-button: #ff0000;
+--ccb-dark-color-text: hsla(0, 0%, 100%, 0.8);
+--ccb-light-color-text: #000000;
+--ccb-dark-color-border: #ffffff;
+--ccb-light-color-border: #000000;
+--ccb-light-color-button-text: hsla(0, 0%, 100%, 1);
+--ccb-dark-color-button-text: hsla(0, 0%, 100%, 0.85);
+--ccb-allow-all-button: #38b000;
+--ccb-allow-selected-button: #ff9500;
+--ccb-deny-button: #bd1f36;
 ```
 
-## TrackingHead and AdvertismentHead
+## TrackingHead, AdvertismentHead and MarketingHead
 
 You can place any content inside these components that needs to be inside your `<head>`.
 You can place it inside your root layout, or on a page by page basis.
 
 Content inside this component, only gets injected once the user has given consent.
 
-## TrackingBody and AdvertismentBody
+## TrackingBody, AdvertismentBody and MarketingBody
 
 You can place any content inside these components that needs to be inside your `<body>`.
 You can place it inside your root layout, or on a page by page basis.
@@ -105,7 +108,7 @@ It will be inserted like a normal component so order matters.
 
 Content inside this component only gets injected once the user has given consent.
 
-## trackingConsent and advertisingConsent
+## trackingConsent, advertisingConsent and marketingConsent
 
 These stores contain the user selection as a boolean value.
 You can use them inside your JavaScript/TypeScript to dynamically have access to user consents, or build your own custom components.
@@ -122,6 +125,7 @@ The following cookies get set in the client Browser, after the user has interact
 ```
 tracking-cookie-consent         | Default false
 advertising-cookie-consent      | Default false
+marketing-cookie-consent        | Default false
 cookie-banner-seen              | Default false
 ```
 
