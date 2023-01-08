@@ -73,6 +73,7 @@ Passing false to any of these props will remove them from the banner and a user 
 ```
 
 If you pass `{false}` to every prop, the user will only see the option from slot `denyConsentText`
+
 ![Cookie consent banner for users with dark preference and all optional data collection disabled](screenshots/consentBannerOnlyNeccessary.png)
 
 ## Styling
