@@ -11,6 +11,28 @@
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write ."
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/manchtools/svelte-cookie-consent.git"
+	},
+	"keywords": [
+		"svelte",
+		"cookie",
+		"cookies",
+		"banner",
+		"consent",
+		"svelte-cookie-consent",
+		"gdpr",
+		"complience"
+	],
+	"bugs": {
+		"url": "https://github.com/manchtools/svelte-cookie-consent/issues",
+		"email": "paul.dotterer@icloud.com"
+	},
+	"author": {
+		"name": "Paul Dotterer",
+		"email": "paul.dotterer@icloud.com"
+	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^1.0.0",
 		"@sveltejs/kit": "^1.0.0",
