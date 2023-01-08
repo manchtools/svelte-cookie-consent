@@ -14,6 +14,9 @@
 	import Cookies from 'js-cookie';
 
 	import { onMount } from 'svelte';
+	export let showMarketingOption = true;
+	export let showAdvertisingOption = true;
+	export let showTrackingOption = true;
 
 	onMount(() => {
 		$trackingConsent = Cookies.get('tracking-cookie-consent') || false;
@@ -29,7 +32,7 @@
 			<h1>
 				<slot name="titleText">We want to track you!</slot>
 			</h1>
-			<p>
+			<p class="mainText">
 				<slot name="mainText">
 					This is a Banner that adheres to GDPR best practices!<br /> Visit our
 					<a href="/privacy">privacy policy</a> for more informations.
@@ -37,36 +40,44 @@
 			</p>
 		</div>
 		<div class="switch-group">
-			<div>
-				<input type="checkbox" name="tracking" bind:checked={$allowTracking} />
-				<label for="tracking"> <slot name="allowTrackingCheckText">Allow Tracking</slot></label>
-			</div>
-			<div>
-				<input type="checkbox" name="advertising" bind:checked={$allowAdvertising} />
-				<label for="advertising">
-					<slot name="allowAdvertisingCheckText">Allow Advertising</slot>
-				</label>
-			</div>
-			<div>
-				<input type="checkbox" name="marketing" bind:checked={$allowMarketing} />
-				<label for="marketing">
-					<slot name="allowMarketingCheckText">Allow Marketing</slot>
-				</label>
-			</div>
+			{#if showTrackingOption}
+				<div>
+					<input type="checkbox" name="tracking" bind:checked={$allowTracking} />
+					<label for="tracking"> <slot name="allowTrackingCheckText">Allow Tracking</slot></label>
+				</div>
+			{/if}
+			{#if showAdvertisingOption}
+				<div>
+					<input type="checkbox" name="advertising" bind:checked={$allowAdvertising} />
+					<label for="advertising">
+						<slot name="allowAdvertisingCheckText">Allow Advertising</slot>
+					</label>
+				</div>
+			{/if}
+			{#if showMarketingOption}
+				<div>
+					<input type="checkbox" name="marketing" bind:checked={$allowMarketing} />
+					<label for="marketing">
+						<slot name="allowMarketingCheckText">Allow Marketing</slot>
+					</label>
+				</div>
+			{/if}
 		</div>
 		<div class="button-group">
-			<button
-				class="allowAll"
-				on:click={() => {
-					allowAll();
-				}}><slot name="giveConsentAllText">Allow Everything</slot></button
-			>
-			<button
-				class="allowSelected"
-				on:click={() => {
-					setSelectedConsent();
-				}}><slot name="giveConsentSelectedText">Allow Selected</slot></button
-			>
+			{#if showAdvertisingOption || showTrackingOption || showMarketingOption}
+				<button
+					class="allowAll"
+					on:click={() => {
+						allowAll();
+					}}><slot name="giveConsentAllText">Allow Everything</slot></button
+				>
+				<button
+					class="allowSelected"
+					on:click={() => {
+						setSelectedConsent();
+					}}><slot name="giveConsentSelectedText">Allow Selected</slot></button
+				>
+			{/if}
 			<button
 				class="deny"
 				on:click={() => {
@@ -86,18 +97,26 @@
 		--ccb-dark-color-border: #ffffff;
 		--ccb-light-color-border: #000000;
 		--ccb-light-color-button-text: hsla(0, 0%, 100%, 1);
-		--ccb-dark-color-button-text: hsla(0, 0%, 100%, 0.8);
+		--ccb-dark-color-button-text: hsla(0, 0%, 100%, 0.85);
 		--ccb-allow-all-button: #38b000;
 		--ccb-allow-selected-button: #ff9500;
 		--ccb-deny-button: #bd1f36;
 	}
 	* {
 		margin: 0;
+		padding: 0;
 	}
 
 	h1 {
-		margin-bottom: 0.5rem;
+		margin-bottom: 0.2rem;
+		font-size: x-large;
 	}
+
+	.mainText {
+		max-height: 33vh;
+		overflow-y: scroll;
+	}
+
 	.cookie-banner {
 		align-items: center;
 		font-family: sans-serif;
@@ -134,7 +153,7 @@
 		display: flex;
 		flex-direction: column;
 		margin-top: 1rem;
-		gap: 1rem;
+		gap: 0.4rem;
 		justify-content: center;
 	}
 	.switch-group div {
@@ -149,6 +168,7 @@
 		font-weight: bold;
 		text-transform: uppercase;
 		border-radius: 0.65rem;
+		font-size: small;
 	}
 
 	@media (min-width: 1024px) {
@@ -163,6 +183,10 @@
 		}
 	}
 	@media (min-width: 768px) {
+		h1 {
+			margin-bottom: 0.5rem;
+			font-size: xx-large;
+		}
 		.button-group {
 			gap: 1.5rem;
 			flex-direction: row;
@@ -174,6 +198,9 @@
 		.switch-group div {
 			display: flex;
 			gap: 0.75rem;
+		}
+		button {
+			font-size: medium;
 		}
 	}
 	@media (prefers-color-scheme: light) {
