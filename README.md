@@ -13,17 +13,18 @@ You can install it, right from NPM
 You have access to 11 exports that control the consent banner behavior.
 
 ```
-<CookieConsentBanner>   |Svelte component
-<TrackingHead>          |Svelte component
-<TrackingBody>          |Svelte component
-<AdvertismentHead>      |Svelte component
-<AdvertismentBody>      |Svelte component
-<MarketingHead>         |Svelte component (new in v0.2.0)
-<MarketingBody>         |Svelte component (new in v0.2.0)
-trackingConsent         |Svelte store
-advertisingConsent      |Svelte store
-marketingConsent        |Svelte Store (new in v0.2.0)
-cookieConsentSeen       |Svelte store
+<CookieConsentBanner>   | Svelte component
+<TrackingHead>          | Svelte component
+<TrackingBody>          | Svelte component
+<AdvertismentHead>      | Svelte component
+<AdvertismentBody>      | Svelte component
+<MarketingHead>         | Svelte component (new in v0.2.0)
+<MarketingBody>         | Svelte component (new in v0.2.0)
+trackingConsent         | Svelte store
+advertisingConsent      | Svelte store
+marketingConsent        | Svelte Store (new in v0.2.0)
+cookieConsentSeen       | Svelte store
+resetCookieBanner       | function that removes all cookies and resets banner to default
 ```
 
 Cookies get an expiration date of 365 days. After that time period, the user will be asked for consent again.
