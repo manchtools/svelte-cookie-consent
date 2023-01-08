@@ -10,7 +10,7 @@ You can install it, right from NPM
 
     npm i @manchtools/svelte-cookie-consent@latest
 
-You have access to 8 exports that control the consent banner behavior.
+You have access to 11 exports that control the consent banner behavior.
 
 ```
 <CookieConsentBanner>   |Svelte component
@@ -18,8 +18,11 @@ You have access to 8 exports that control the consent banner behavior.
 <TrackingBody>          |Svelte component
 <AdvertismentHead>      |Svelte component
 <AdvertismentBody>      |Svelte component
+<MarketingHead>         |Svelte component (new in v0.2.0)
+<MarketingBody>         |Svelte component (new in v0.2.0)
 trackingConsent         |Svelte store
 advertisingConsent      |Svelte store
+marketingConsent        |Svelte Store (new in v0.2.0)
 cookieConsentSeen       |Svelte store
 ```
 
@@ -29,7 +32,13 @@ Cookies get an expiration date of 365 days. After that time period, the user wil
 
 This is the main banner that your users sees when first loading your site.
 
-![Cookie consent banner](screenshots/consentBanner.png)
+##### Dark version
+
+![Cookie consent banner for users with dark preference](screenshots/consentBannerv2dark.png)
+
+#### Light version
+
+![Cookie consent banner for users with light preference](screenshots/consentBannerv2light.png)
 
 It provides 4 named slots
 
@@ -41,6 +50,23 @@ denyConsentText
 ```
 
 You can insert your own text or HTML into these slots to extend it for your needs.
+
+New in v0.2.0 are now 3 props
+
+```
+showAdvertisingOption   | Default true
+showMarketingOption     | Default true
+showTrackingOption      | Default true
+```
+
+Passing false to any of these props will remove them from the banner and a user wont be able to consent to that form of data collection
+
+```
+<Banner showAdvertisingOption={false} showMarketingOption={false} showTrackingOption={false}>
+```
+
+If you pass `{false}` to every prop, the user only will see the option from slot `denyConsentText`
+![Cookie consent banner for users with dark preference and all optional data collection disabled](screenshots/consentBannerOnlyNeccessary.png)
 
 ## Styling
 
