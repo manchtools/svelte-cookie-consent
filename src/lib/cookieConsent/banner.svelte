@@ -68,7 +68,7 @@
 				<button
 					class="allowAll"
 					on:click={() => {
-						allowAll();
+						allowAll(showMarketingOption, showAdvertisingOption, showTrackingOption);
 					}}><slot name="giveConsentAllText">Allow Everything</slot></button
 				>
 				<button
