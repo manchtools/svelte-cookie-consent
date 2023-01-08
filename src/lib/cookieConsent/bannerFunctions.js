@@ -83,11 +83,21 @@ export function setSelectedConsent() {
 	setCookieConsentSeen();
 }
 
-export function allowAll() {
+export function allowAll(
+	showMarketingOption = true,
+	showAdvertisingOption = true,
+	showTrackingOption = true
+) {
 	setCookieConsentSeen();
-	setTrackingAllowedCookie();
-	setAdvertisementAllowedCookie();
-	setAMarketingAllowedCookie();
+	if (showTrackingOption) {
+		setTrackingAllowedCookie();
+	}
+	if (showAdvertisingOption) {
+		setAdvertisementAllowedCookie();
+	}
+	if (showMarketingOption) {
+		setAMarketingAllowedCookie();
+	}
 	resetSelection();
 }
 
